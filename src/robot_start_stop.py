@@ -54,10 +54,15 @@ def check_robot_claim():
             
             return jsonify({
                 'status': 'success',
+                'message': 'Robot is currently claimed.',
                 'claim': data
             })
         except:
-            return jsonify({'status': 'error', 'message': 'Failed to check robot claim.'})
+            return jsonify({
+                'status': 'error', 
+                'message': 'Failed to check robot claim.',
+                'claim': None
+            })
 
     # if the file doesn't exist, then the robot is not claimed
     else:
